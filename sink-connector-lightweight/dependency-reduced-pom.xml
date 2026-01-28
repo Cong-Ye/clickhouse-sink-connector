@@ -119,7 +119,7 @@
     <dependency>
       <groupId>io.javalin</groupId>
       <artifactId>javalin-testtools</artifactId>
-      <version>5.5.0</version>
+      <version>6.7.0</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -385,7 +385,7 @@
     <version.kafka>3.8.0</version.kafka>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sink-connector-library-version>0.0.9</sink-connector-library-version>
-    <javalin-version>5.5.0</javalin-version>
+    <javalin-version>6.7.0</javalin-version>
     <version.junit>5.9.1</version.junit>
     <maven.compiler.source>17</maven.compiler.source>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
