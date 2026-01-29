@@ -748,6 +748,8 @@ public class DebeziumChangeEventCapture {
             if (matchingDDLField != null) {
                 String DDL = (String) struct.get("ddl");
                 log.debug("Source DB DDL: " + DDL);
+                DDL = DDL.replaceAll("_utf8mb4", "").replaceAll("_utf8mb3", "");
+                log.debug("Source DB DDL after replacement: " + DDL);
 
                 if (DDL != null && !DDL.isEmpty()) {
                     log.info("***** DDL received, Flush all existing records");
