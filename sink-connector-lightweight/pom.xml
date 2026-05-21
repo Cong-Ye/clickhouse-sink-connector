@@ -16,7 +16,7 @@
         <version.debezium>3.5.1.Final</version.debezium>
         <version.junit>6.1.0</version.junit>
         <version.testcontainers>1.21.4</version.testcontainers>
-        <version.testcontainers.core>1.21.4</version.testcontainers.core>
+        <version.testcontainers.core>2.0.5</version.testcontainers.core>
         <version.checkstyle.plugin>3.1.1</version.checkstyle.plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
