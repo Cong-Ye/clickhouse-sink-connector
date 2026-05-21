@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.debezium>3.5.1.Final</version.debezium>
-        <version.junit>5.9.1</version.junit>
+        <version.junit>6.1.0</version.junit>
         <version.testcontainers>1.21.4</version.testcontainers>
         <version.testcontainers.core>1.21.4</version.testcontainers.core>
         <version.checkstyle.plugin>3.1.1</version.checkstyle.plugin>
@@ -525,7 +525,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.1</version>
+            <version>6.1.0</version>
             <scope>test</scope>
         </dependency>
         <!--
