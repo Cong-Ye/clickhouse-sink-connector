@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.debezium>3.1.3.Final</version.debezium>
+        <version.debezium>3.5.1.Final</version.debezium>
         <version.junit>5.9.1</version.junit>
         <version.testcontainers>1.21.4</version.testcontainers>
         <version.testcontainers.core>1.21.4</version.testcontainers.core>
