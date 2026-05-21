@@ -229,7 +229,7 @@
         <dependency>
             <groupId>org.locationtech.jts</groupId>
             <artifactId>jts-core</artifactId>
-            <version>1.18.2</version>
+            <version>1.20.0</version>
         </dependency>
         <!-- DEBEZIUM dependencies: END -->
         <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
