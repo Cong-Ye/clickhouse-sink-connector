@@ -26,7 +26,7 @@
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <sink-connector-library-version>0.0.9</sink-connector-library-version>
         <version.kafka>4.3.0</version.kafka>
-        <javalin-version>5.5.0</javalin-version>
+        <javalin-version>7.2.2</javalin-version>
     </properties>
     <dependencyManagement>
         <dependencies>
