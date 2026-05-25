@@ -1,6 +1,5 @@
 package com.altinity.clickhouse.debezium.embedded.cdc;
 
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.testcontainers.clickhouse.ClickHouseContainer;
@@ -34,7 +33,6 @@ public class AbstractCDCBaseIT {
                     .withExtraHost("mysql-server", "0.0.0.0")
                     .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-            BasicConfigurator.configure();
             mySqlContainer.start();
             clickHouseContainer.start();
 

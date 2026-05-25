@@ -11,7 +11,6 @@ import com.altinity.clickhouse.sink.connector.db.DBMetadata;
 import com.altinity.clickhouse.sink.connector.db.HikariDbSource;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -72,7 +71,6 @@ public class DatabaseOverrideRRMTIT {
         clickHouseContainer.withNetwork(network).withNetworkAliases("clickhouse");
         //clickHouseContainer.start();
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
        clickHouseContainer.start();
         Thread.sleep(35000);

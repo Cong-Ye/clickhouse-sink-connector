@@ -6,7 +6,6 @@ import com.altinity.clickhouse.debezium.embedded.parser.SourceRecordParserServic
 import com.altinity.clickhouse.sink.connector.db.BaseDbWriter;
 import com.altinity.clickhouse.sink.connector.db.DBMetadata;
 import com.altinity.clickhouse.sink.connector.db.HikariDbSource;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,7 +55,6 @@ public class CreateTablePrimaryKeyFromMySQLIT {
                 .withExtraHost("mysql-server", "0.0.0.0")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         clickHouseContainer.start();
         Thread.sleep(25000);

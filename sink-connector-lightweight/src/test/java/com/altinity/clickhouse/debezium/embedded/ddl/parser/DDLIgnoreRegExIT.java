@@ -1,6 +1,5 @@
 package com.altinity.clickhouse.debezium.embedded.ddl.parser;
 
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,7 +38,6 @@ public class DDLIgnoreRegExIT {
                 .withExtraHost("mysql-server", "0.0.0.0")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         // clickHouseContainer.start();
         Thread.sleep(15000);

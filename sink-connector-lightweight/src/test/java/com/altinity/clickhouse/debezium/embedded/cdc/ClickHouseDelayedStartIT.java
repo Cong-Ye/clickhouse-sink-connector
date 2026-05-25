@@ -9,7 +9,6 @@ import com.altinity.clickhouse.sink.connector.ClickHouseSinkConnectorConfig;
 import com.altinity.clickhouse.sink.connector.db.BaseDbWriter;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.testcontainers.clickhouse.ClickHouseContainer;
@@ -52,7 +51,6 @@ public class ClickHouseDelayedStartIT {
                 .withExtraHost("mysql-server", "0.0.0.0")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         clickHouseContainer.start();
         Thread.sleep(15000);

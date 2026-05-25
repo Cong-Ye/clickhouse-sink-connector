@@ -13,7 +13,6 @@ import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.debezium.storage.jdbc.offset.JdbcOffsetBackingStoreConfig;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -62,7 +61,6 @@ public class DebeziumChangeEventCaptureIT{
                 .withExtraHost("mysql-server", "0.0.0.0")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         clickHouseContainer.start();
         Thread.sleep(35000);

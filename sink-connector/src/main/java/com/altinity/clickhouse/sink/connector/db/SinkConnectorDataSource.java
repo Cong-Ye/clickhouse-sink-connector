@@ -3,6 +3,7 @@ package com.altinity.clickhouse.sink.connector.db;
 import com.clickhouse.jdbc.ClickHouseConnection;
 import com.clickhouse.jdbc.ClickHouseDataSource;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -42,11 +43,11 @@ public class SinkConnectorDataSource extends ClickHouseDataSource {
      * before returning the connection.
      * </p>
      *
-     * @return a ClickHouseConnection object.
+     * @return a Connection object.
      * @throws SQLException if an error occurs while obtaining the connection.
      */
     @Override
-    public ClickHouseConnection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         // Custom behavior can be added here if needed, for example, using a custom HTTP client.
         // System.out.println("Using custom HTTP client for ClickHouse!");
         return super.getConnection();

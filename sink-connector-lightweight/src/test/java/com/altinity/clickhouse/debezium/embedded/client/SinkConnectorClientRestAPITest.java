@@ -37,7 +37,6 @@ import com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.impl.clas
 import com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.classic.methods.HttpGet;
 import com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.classic.methods.HttpPost;
 import com.github.dockerjava.zerodep.shaded.org.apache.hc.client5.http.classic.methods.HttpUriRequest;
-import org.apache.log4j.BasicConfigurator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -102,7 +101,6 @@ public class SinkConnectorClientRestAPITest {
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
         try {
-            BasicConfigurator.configure();
             mySqlContainer.start();
             clickHouseContainer.start();
             Thread.sleep(40000);

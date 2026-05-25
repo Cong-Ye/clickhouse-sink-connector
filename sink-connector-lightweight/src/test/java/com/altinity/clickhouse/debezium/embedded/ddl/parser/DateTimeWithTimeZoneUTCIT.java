@@ -6,7 +6,6 @@ import com.altinity.clickhouse.debezium.embedded.parser.SourceRecordParserServic
 import com.altinity.clickhouse.sink.connector.db.BaseDbWriter;
 import com.altinity.clickhouse.sink.connector.db.HikariDbSource;
 import junit.framework.Assert;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.*;
 import org.testcontainers.clickhouse.ClickHouseContainer;
 import org.testcontainers.containers.MySQLContainer;
@@ -56,7 +55,6 @@ public class DateTimeWithTimeZoneUTCIT {
                 .withEnv("TZ", "UTC")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         clickHouseContainer.start();
         Thread.sleep(15000);

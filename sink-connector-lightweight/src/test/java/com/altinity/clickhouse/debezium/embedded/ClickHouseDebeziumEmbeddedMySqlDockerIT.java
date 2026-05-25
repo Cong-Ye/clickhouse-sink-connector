@@ -3,7 +3,6 @@
 //import com.altinity.clickhouse.debezium.embedded.cdc.DebeziumChangeEventCapture;
 //import com.altinity.clickhouse.debezium.embedded.ddl.parser.MySQLDDLParserService;
 //import com.altinity.clickhouse.debezium.embedded.parser.SourceRecordParserService;
-//import org.apache.log4j.BasicConfigurator;
 //import org.junit.Assert;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
@@ -47,7 +46,6 @@
 //                .withExtraHost("mysql-server", "0.0.0.0")
 //                .waitingFor(new HttpWaitStrategy().forPort(3306));
 //
-//        BasicConfigurator.configure();
 //        mySqlContainer.start();
 //        Thread.sleep(15000);
 //    }

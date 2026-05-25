@@ -20,7 +20,6 @@ import com.altinity.clickhouse.sink.connector.db.DBMetadata;
 import com.clickhouse.jdbc.ClickHouseConnection;
 
 import org.aopalliance.reflect.Metadata;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.testcontainers.clickhouse.ClickHouseContainer;
@@ -88,7 +87,6 @@ public class MySQLDemoIT  {
 
 
         try {
-            BasicConfigurator.configure();
             mySqlContainer.start();
             clickHouseContainer.start();
             Thread.sleep(10000);

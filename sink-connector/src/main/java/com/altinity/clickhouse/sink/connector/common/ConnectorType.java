@@ -1,7 +1,6 @@
 package com.altinity.clickhouse.sink.connector.common;
 
 import com.altinity.clickhouse.sink.connector.ClickHouseSinkConnectorConfig;
-import io.debezium.metadata.ConnectorDescriptor;
 import org.apache.logging.log4j.Logger;
 
 /**
@@ -63,14 +62,10 @@ public enum ConnectorType {
     public static ConnectorType fromString(String value) {
         ConnectorType connectorType = ConnectorType.MYSQL;
 
-        String displayName = ConnectorDescriptor.getIdForConnectorClass(value);
-        if (displayName != null) {
-            //connectorType =ConnectorType.valueOf(displayName);
-            if (displayName.contains(MYSQL.getValue())) {
-                connectorType = ConnectorType.MYSQL;
-            } else if (displayName.contains(POSTGRES.getValue())) {
-                connectorType = ConnectorType.POSTGRES;
-            }
+        if (value.toLowerCase().contains(MYSQL.getValue())) {
+            connectorType = ConnectorType.MYSQL;
+        } else if (value.toLowerCase().contains(POSTGRES.getValue())) {
+            connectorType = ConnectorType.POSTGRES;
         }
         return connectorType;
     }

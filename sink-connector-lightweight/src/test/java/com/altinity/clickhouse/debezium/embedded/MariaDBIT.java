@@ -4,7 +4,6 @@ import com.altinity.clickhouse.debezium.embedded.cdc.DebeziumChangeEventCapture;
 import com.altinity.clickhouse.debezium.embedded.parser.SourceRecordParserService;
 import com.altinity.clickhouse.sink.connector.db.HikariDbSource;
 import com.altinity.clickhouse.sink.connector.db.BaseDbWriter;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -39,7 +38,7 @@ public class MariaDBIT
 
     @BeforeEach
     public void startContainers() throws InterruptedException {
-        mySqlContainer = (MariaDBContainer) new MariaDBContainer()
+        mySqlContainer = (MariaDBContainer) new MariaDBContainer(MariaDBContainer.NAME)
                 .withDatabaseName("employees").withUsername("adminuser").withPassword("adminpass")
                 // .withInitScript("data_types.sql")
                 .withCopyFileToContainer(
@@ -49,7 +48,6 @@ public class MariaDBIT
                 .withExtraHost("mysql-server", "0.0.0.0")
                 .waitingFor(new HttpWaitStrategy().forPort(3306));
 
-        BasicConfigurator.configure();
         mySqlContainer.start();
         Thread.sleep(15000);
     }
