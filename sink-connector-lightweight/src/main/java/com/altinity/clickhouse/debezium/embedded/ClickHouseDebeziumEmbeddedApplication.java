@@ -136,6 +136,8 @@ public class ClickHouseDebeziumEmbeddedApplication {
      * @throws Exception if any error occurs
      */
     public static void main(String[] args) throws Exception {
+        System.setProperty("clickhouse.jdbc.v1", "true");
+
         Log4jBridgeHandler.install(false, "", true);
         System.setProperty(
                 "java.util.logging.manager",

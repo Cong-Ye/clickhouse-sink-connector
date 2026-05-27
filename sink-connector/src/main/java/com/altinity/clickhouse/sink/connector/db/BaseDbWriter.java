@@ -289,7 +289,7 @@ public class BaseDbWriter {
                 conn = hikariDbSource.getConnection();
             }
         } catch (Exception e) {
-            log.error("Error creating ClickHouse connection" + e);
+            log.error("Error creating ClickHouse connection", e);
         }
         return conn;
     }

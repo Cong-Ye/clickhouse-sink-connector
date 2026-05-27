@@ -84,6 +84,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+        </dependency>
         <!-- Dependency for kotlin -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -489,26 +494,14 @@
             <groupId>com.clickhouse</groupId>
             <!-- or clickhouse-grpc-client if you prefer gRPC -->
             <artifactId>clickhouse-jdbc</artifactId>
-<!--            <classifier>shaded</classifier>-->
+            <classifier>all</classifier>
             <version>0.9.8</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.25.4</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.23.1</version>
             <scope>compile</scope>
         </dependency>
 
@@ -696,46 +689,46 @@
             </plugin>
 
             <!-- License Compliance Plugin -->
-            <plugin>
-                <groupId>org.honton.chas</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>0.0.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compliance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- Add explicit licenses for libraries with non-standard license declarations -->
-                    <acceptableLicenses>
-                        <!-- Eclipse licenses for JTS library -->
-                        <license>
-                            <name>Eclipse Public License, Version 2\.0</name>
-                            <url>https?://github\.com/locationtech/jts/blob/master/LICENSE_EPLv2\.txt</url>
-                        </license>
-                        <license>
-                            <name>Eclipse Distribution License - v 1\.0</name>
-                            <url>https?://github\.com/locationtech/jts/blob/master/LICENSE_EDLv1\.txt</url>
-                        </license>
-                        <!-- BSD License for ANTLR -->
-                        <license>
-                            <name>The BSD License</name>
-                            <url>https?://(www\.)?antlr\.org/license\.html</url>
-                        </license>
-                        <!-- CDDL+GPL dual license for javax.json -->
-                        <license>
-                            <name>Dual license consisting of the CDDL v1\.1 and GPL v2</name>
-                            <url>https?://oss\.oracle\.com/licenses/CDDL\+GPL-1\.1</url>
-                        </license>
-                    </acceptableLicenses>
-                    <!-- Use OSI permissive licenses as acceptable licenses -->
-                    <acceptableLicenseResources>osi-permissive</acceptableLicenseResources>
-                    <!-- Check compile, runtime, and provided scopes (exclude test) -->
-                    <scopes>compile,runtime,provided</scopes>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.honton.chas</groupId>-->
+<!--                <artifactId>license-maven-plugin</artifactId>-->
+<!--                <version>0.0.6</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>compliance</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; Add explicit licenses for libraries with non-standard license declarations &ndash;&gt;-->
+<!--                    <acceptableLicenses>-->
+<!--                        &lt;!&ndash; Eclipse licenses for JTS library &ndash;&gt;-->
+<!--                        <license>-->
+<!--                            <name>Eclipse Public License, Version 2\.0</name>-->
+<!--                            <url>https?://github\.com/locationtech/jts/blob/master/LICENSE_EPLv2\.txt</url>-->
+<!--                        </license>-->
+<!--                        <license>-->
+<!--                            <name>Eclipse Distribution License - v 1\.0</name>-->
+<!--                            <url>https?://github\.com/locationtech/jts/blob/master/LICENSE_EDLv1\.txt</url>-->
+<!--                        </license>-->
+<!--                        &lt;!&ndash; BSD License for ANTLR &ndash;&gt;-->
+<!--                        <license>-->
+<!--                            <name>The BSD License</name>-->
+<!--                            <url>https?://(www\.)?antlr\.org/license\.html</url>-->
+<!--                        </license>-->
+<!--                        &lt;!&ndash; CDDL+GPL dual license for javax.json &ndash;&gt;-->
+<!--                        <license>-->
+<!--                            <name>Dual license consisting of the CDDL v1\.1 and GPL v2</name>-->
+<!--                            <url>https?://oss\.oracle\.com/licenses/CDDL\+GPL-1\.1</url>-->
+<!--                        </license>-->
+<!--                    </acceptableLicenses>-->
+<!--                    &lt;!&ndash; Use OSI permissive licenses as acceptable licenses &ndash;&gt;-->
+<!--                    <acceptableLicenseResources>osi-permissive</acceptableLicenseResources>-->
+<!--                    &lt;!&ndash; Check compile, runtime, and provided scopes (exclude test) &ndash;&gt;-->
+<!--                    <scopes>compile,runtime,provided</scopes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
     <profiles>

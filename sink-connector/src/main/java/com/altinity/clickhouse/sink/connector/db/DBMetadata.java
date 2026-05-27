@@ -633,10 +633,10 @@ public class DBMetadata {
         // Add retry logic.
         int retryCount = 0;
         String result = null;
-        ResultSet rs = null;
+        Boolean rs = null;
         while (retryCount < MAX_RETRIES) {
             try {
-                rs = conn.prepareStatement(sql).executeQuery();
+                rs = conn.prepareStatement(sql).execute();
                 break;
             } catch (SQLException sqle) {
                 try {
@@ -654,9 +654,7 @@ public class DBMetadata {
         }
 
         if (rs != null) {
-            while(rs.next()) {
-                result = rs.getString(1);
-            }
+            result = rs.toString();
         }
         return result;
     }
