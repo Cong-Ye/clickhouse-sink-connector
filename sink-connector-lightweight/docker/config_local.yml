@@ -88,7 +88,7 @@ offset.storage.jdbc.table.delete: "select * from %s"
 offset.storage.jdbc.table.select: "SELECT id, offset_key, offset_val FROM %s FINAL ORDER BY record_insert_ts, record_insert_seq"
 
 # schema.history.internal: The Java class that implements the schema history strategy. This must be set to io.debezium.storage.jdbc.history.JdbcSchemaHistory.
-schema.history.internal: "io.debezium.storage.jdbc.history.JdbcSchemaHistory"
+schema.history.internal: "io.debezium.storage.jdbc.history.JdbcSchemaHistory2"
 
 # schema.history.internal.jdbc.url: The JDBC URL for the database where connector schema history is to be stored.
 schema.history.internal.jdbc.url: "jdbc:clickhouse://localhost:8123/altinity_sink_connector"
