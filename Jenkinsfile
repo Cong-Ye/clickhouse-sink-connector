@@ -5,7 +5,7 @@ pipeline {
     tools { jdk 'jdk17' }
 
     parameters {
-        string(name: 'VERSION', defaultValue: '2.9.1-lt-SNAPSHOT', description: 'Docker image version to build and push (empty to skip)')
+        string(name: 'VERSION', defaultValue: '2.9.1-lt', description: 'Docker image version to build and push (empty to skip)')
     }
 
     stages {
