@@ -312,10 +312,13 @@ public class MySqlDDLParserListenerImpl extends MySQLDDLParserBaseListener {
             }
         }
 
+        Set<String> fullTableSet = Set.of(config.getString(ClickHouseSinkConnectorConfigVariables.FULL_TABLE_LIST.toString()).split(","));
+        boolean isFullTable = fullTableSet.contains(tableName.replaceAll("`", ""));
+        String partitionColumnForReplicationHistory = isFullTable ? DELETED_TIME_COLUMN : DELETED_FROM_TIME_COLUMN;
         // Append partitioning and ordering clauses, using values from tableConfig if they exist
 
         if (config.getBoolean(ClickHouseSinkConnectorConfigVariables.REPLICATION_HISTORY_ENABLE.toString())) {
-            String deletedTimeColumnToDate = String.format(DELETED_TIME_COLUMN_TO_DATE, DELETED_TIME_COLUMN);
+            String deletedTimeColumnToDate = String.format(DELETED_TIME_COLUMN_TO_DATE, partitionColumnForReplicationHistory);
             this.query.append(" PARTITION BY ").append(deletedTimeColumnToDate);
         } else if (tableConfig.getPartitionBy() != null && !tableConfig.getPartitionBy().isEmpty()) {
             // Use the partition_by from tableConfig if it exists
@@ -350,7 +353,7 @@ public class MySqlDDLParserListenerImpl extends MySQLDDLParserBaseListener {
                     this.query.append(Constants.ORDER_BY);
                     this.query.append("(");
                     this.query.append(orderByColumns.toString());
-                    this.query.append(",`").append(DELETED_TIME_COLUMN).append("`");
+                    this.query.append(",`").append(partitionColumnForReplicationHistory).append("`");
 
                     this.query.append(")");
                 }
@@ -361,7 +364,7 @@ public class MySqlDDLParserListenerImpl extends MySQLDDLParserBaseListener {
         }
 
         if(config.getBoolean(ClickHouseSinkConnectorConfigVariables.REPLICATION_HISTORY_ENABLE.toString())) {
-            this.query.append(" TTL `").append(DELETED_TIME_COLUMN)
+            this.query.append(" TTL `").append(partitionColumnForReplicationHistory)
                       .append("` + toIntervalDay(").append(config.getInt(ClickHouseSinkConnectorConfigVariables.REPLICATION_HISTORY_TTL.toString()))
                       .append(")");
         }

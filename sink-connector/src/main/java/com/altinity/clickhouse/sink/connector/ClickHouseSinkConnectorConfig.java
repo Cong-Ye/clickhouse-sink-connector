@@ -818,6 +818,20 @@ public class ClickHouseSinkConnectorConfig extends AbstractConfig {
                         ORDER_3,
                         ConfigDef.Width.NONE,
                         ClickHouseSinkConnectorConfigVariables.DATABASE_HOSTNAME.toString()
+                )
+                // Define full table list
+                .define(
+                    ClickHouseSinkConnectorConfigVariables
+                        .FULL_TABLE_LIST.toString(),
+                    Type.STRING,
+                    "",
+                    Importance.HIGH,
+                    "only full table will save both history and all latest records",
+                    CONFIG_GROUP_CONNECTOR_CONFIG,
+                    ORDER_0,
+                    ConfigDef.Width.NONE,
+                    ClickHouseSinkConnectorConfigVariables
+                        .FULL_TABLE_LIST.toString()
                 );
     }
 }

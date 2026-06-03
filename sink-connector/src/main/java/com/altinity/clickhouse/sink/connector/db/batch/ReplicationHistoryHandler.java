@@ -11,6 +11,7 @@ import com.altinity.clickhouse.sink.connector.metadata.DataTypeRange;
 import com.altinity.clickhouse.sink.connector.model.ClickHouseStruct;
 import com.clickhouse.data.ClickHouseDataType;
 import com.google.common.annotations.VisibleForTesting;
+import java.util.Set;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Struct;
@@ -213,7 +214,7 @@ public class ReplicationHistoryHandler {
         // Build query parameters from the record
         UpdateQueryParams params = buildUpdateQueryParams(record);
 
-        final String insertQuery;
+        String insertQuery;
         final Map<String, Integer> queryColumnIndexMap;
 
         if (isDelete) {
@@ -230,6 +231,13 @@ public class ReplicationHistoryHandler {
             );
             insertQuery = queryResult.left;
             queryColumnIndexMap = queryResult.right;
+        }
+
+        Set<String> fullTableSet = Set.of(config.getString(ClickHouseSinkConnectorConfigVariables.FULL_TABLE_LIST.toString()).split(","));
+
+        if (!fullTableSet.contains(tableName)) {
+            //skip old version update, just save the incremental change record
+            insertQuery = insertQuery.split("SELECT")[0] + insertQuery.split("UNION ALL")[1];
         }
 
         log.debug("Executing replication history {} query: {}", isDelete ? "delete" : "update", insertQuery);

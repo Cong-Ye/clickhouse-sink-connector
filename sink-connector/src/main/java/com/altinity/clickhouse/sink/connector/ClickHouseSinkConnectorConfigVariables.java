@@ -106,7 +106,9 @@ public enum ClickHouseSinkConnectorConfigVariables {
 
     REPLICATION_HISTORY_REPLICATION_LOG_ONLY("replication.history.replication_log_only"),
 
-    DATABASE_HOSTNAME("database.hostname");
+    DATABASE_HOSTNAME("database.hostname"),
+
+    FULL_TABLE_LIST("full.table.list");
 
 
 
