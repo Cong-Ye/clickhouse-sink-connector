@@ -118,11 +118,11 @@ auto.create.tables: "true"
 
 
 # database.connectionTimeZone: The timezone of the MySQL database server used to correctly shift the commit transaction timestamp.
-database.connectionTimeZone: "America/Chicago"
-database.serverTimezone: "America/Chicago"
+database.connectionTimeZone: "Asia/Shanghai"
+database.serverTimezone: "Asia/Shanghai"
 
 # clickhouse.datetime.timezone: This timezone will override the default timezone of ClickHouse server. Timezone columns will be set to this timezone.
-clickhouse.datetime.timezone: "America/Chicago"
+#clickhouse.datetime.timezone: "America/Chicago"
 
 # skip_replica_start: If set to true, the connector will skip replication on startup. sink-connector-client start_replica will start replication.
 #skip_replica_start: "false"
@@ -157,9 +157,9 @@ clickhouse.jdbc.settings: "input_format_null_as_default=0,allow_experimental_obj
 # The maximum number of records that should be loaded into memory while streaming data from MySQL to ClickHouse.
 
 # Skip schema history capturing
-#schema.history.internal.store.only.captured.tables.ddl: "true"
+schema.history.internal.store.only.captured.tables.ddl: "true"
 
-#schema.history.internal.store.only.captured.databases.ddl: "true"
+schema.history.internal.store.only.captured.databases.ddl: "true"
 
 # If set, a non-default value will be set, for example if NULL is passed from source, the value will be NULL.
 non.default.value: "true"
@@ -177,3 +177,9 @@ replication.history.database.name: "replication_history_db"
 connection.pool.disable: "true"
 
 replacingmergetree.delete.column: _sign
+
+metrics.enable: "true"
+
+replication.history.ttl: 90
+
+full.table.list: mytable
